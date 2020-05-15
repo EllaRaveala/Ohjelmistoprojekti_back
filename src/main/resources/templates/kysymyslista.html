@@ -1,41 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Kysymyslista</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<title>Kysymyslista</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Kysymykset</h1>
-	
-		
+
+
 	<a href="/lisaakysymys" class="btn btn-success">Lisää kysymys</a>
-		
+
 	<table class="table table-striped">
 		<thead class="thead-dark">
-		<tr>
-			<th>Kysymys</th>
-			<th>Tyyppi</th>
-			<th>Vastaukset</th>
-			<th />
-			<th />
-		</tr>
+			<tr>
+				<th>Kysymys</th>
+				<th>Tyyppi</th>
+				<th>Vaihtoehdot</th>
+				<th>Vastaukset</th>
+				<th />
+				<th />
+			</tr>
 		</thead>
-		
+
 		<tbody id="QTable">
-		<tr th:each="kysymys : ${kysymykset}">
-			<td th:text="${kysymys.question}"></td>
-			<td th:text="${kysymys.type}"></td>
-			<td><a th:href="@{/vastaukset/kysymys/{id}(id=${kysymys.id})}">vastaukset</a></td>
-			<td><a th:href="@{/poista/{id}(id=${kysymys.id})}"
-				class="btn btn-danger">Poista</a></td>
-			<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"
-				class="btn btn-primary">Muokkaa</a></td>
-		</tr>
-		</tbody>	
-	</table></br>
-	<a href="/vastaajat" class="btn btn-success">Vastaajat</a> 
-	
+			<tr th:each="kysymys : ${kysymykset}">
+				<td th:text="${kysymys.question}"></td>
+				<td th:text="${kysymys.type}"></td>
+				<td th:text="${kysymys.vaihtoehdot}"></td>
+				<td><a th:href="@{/vastaukset/kysymys/{id}(id=${kysymys.id})}">vastaukset</a></td>
+				<td><a th:href="@{/poista/{id}(id=${kysymys.id})}"
+					class="btn btn-danger">Poista</a></td>
+				<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"
+					class="btn btn-primary">Muokkaa</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/vastaajat" class="btn btn-success">Vastaajat</a>
+
 </body>
 </html>
 

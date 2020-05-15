@@ -15,21 +15,17 @@ public class Vaihtoehto {
 	private String teksti;
 
 	@ManyToOne
-    @JoinColumn(name = "kysymysId")
-    private Kysymys kysymys;
-	
-	
+	@JoinColumn(name = "kysymysId")
+	private Kysymys kysymys;
+
 	public Vaihtoehto() {
 		this.teksti = null;
-		this.kysymys = null;
 	}
-	
+
 	public Vaihtoehto(String teksti, Kysymys kysymys) {
 		this.teksti = teksti;
 		this.kysymys = kysymys;
 	}
-
-
 
 	public Long getVaihtoehtoid() {
 		return vaihtoehtoid;
@@ -46,7 +42,7 @@ public class Vaihtoehto {
 	public void setTeksti(String teksti) {
 		this.teksti = teksti;
 	}
-	
+
 	public Kysymys getKysymys() {
 		return kysymys;
 	}
@@ -57,9 +53,7 @@ public class Vaihtoehto {
 
 	@Override
 	public String toString() {
-		return "Vaihtoehdot [vaihtoehtoid=" + vaihtoehtoid + ", teksti=" + teksti + ", kysymys=" + kysymys + "]";
+		return teksti;
 	}
-
-	
 
 }

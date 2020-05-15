@@ -38,6 +38,10 @@ public class ProjektiApplication {
 			kRepository.save(new Kysymys("Miten menee?", "open"));
 			kRepository.save(new Kysymys("Moi?", "radio"));
 			
+			log.info("save demo vaihtoehto to db");
+			veRepository.save(new Vaihtoehto("Hyvin", kRepository.findByQuestion("Miten menee?").get(0)));
+			veRepository.save(new Vaihtoehto("Huonosti", kRepository.findByQuestion("Miten menee?").get(0)));
+			
 			log.info("save demo vastaaja to db");
 			vRepository.save(new Vastaaja("sposti@sposti.fi"));
 			vRepository.save(new Vastaaja("aa@sposti.fi"));
